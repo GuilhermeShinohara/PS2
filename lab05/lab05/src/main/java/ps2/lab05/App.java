@@ -65,34 +65,37 @@ public class App implements CommandLineRunner {
 		}
 	}
 	public void ler() {
-		out.print("Informe o ID do titular: ");
+		out.print("Digite o ID do titular: ");
 		long id = Long.parseLong(entrada.nextLine());
-		Optional<Titular> titular = titularRepo.findById(id);
-		if (titular.isPresent()) {
-			Titular t = titular.get();
-			out.println("Titular encontrado: " + t.getId() + " - " + t.getNome() + " - " + t.getCpf());
+		Titular titular = titularRepo.findById(id).orElse(null);
+		
+		if (titular != null) {
+			out.println("Titular encontrado: " + titular.getId() + " - " + titular.getNome() + " - " + titular.getCpf());
 		} else {
 			out.println("Titular não encontrado!");
 		}
 	}
 	public void alterar() {
-		out.print("ID do titular que deseja alterar: ");
+		out.print("# Digite o ID do titular a ser alterado: ");
 		long id = Long.parseLong(entrada.nextLine());
-		Optional<Titular> titularOpt = titularRepo.findById(id);
-		if (titularOpt.isPresent()) {
-			Titular t = titularOpt.get();
+		Titular titular = titularRepo.findById(id).orElse(null);
+		
+		if (titular != null) {
 			out.print("Novo nome: ");
-			t.setNome(entrada.nextLine());
+			String novoNome = entrada.nextLine();
 			out.print("Novo CPF: ");
-			t.setCpf(entrada.nextLine());
-			titularRepo.save(t);
+			String novoCpf = entrada.nextLine();
+			
+			titular.setNome(novoNome);
+			titular.setCpf(novoCpf);
+			titularRepo.save(titular);
 			out.println("Titular atualizado com sucesso!");
 		} else {
 			out.println("Titular não encontrado!");
 		}
 	}
 	public void apagar() {
-		out.print("Informe o ID do titular que deseja apagar:");
+		out.print("Digite o ID do titular a ser removido: ");
 		long id = Long.parseLong(entrada.nextLine());
 		if (titularRepo.existsById(id)) {
 			titularRepo.deleteById(id);
@@ -101,4 +104,5 @@ public class App implements CommandLineRunner {
 			out.println("Titular não encontrado!");
 		}
 	}
+
 }
