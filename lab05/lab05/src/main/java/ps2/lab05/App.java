@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import static java.lang.System.out;
 
-import java.util.Optional;
 import java.util.Scanner;
 
 @SpringBootApplication
