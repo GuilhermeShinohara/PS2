@@ -60,6 +60,11 @@ public class App implements CommandLineRunner {
 
 						System.out.println("Matrícula do novo professor:  ");
 						String matriculaNovoProfessor = entrada.nextLine();
+
+						System.out.println("Faculdade do novo professor (selecione um dos números abaixo)\r\n" + //
+														"  (1) Direito\n" + //
+														"  (2) Computação e Informática");
+						Int
 						break;
 
 					case 4:
