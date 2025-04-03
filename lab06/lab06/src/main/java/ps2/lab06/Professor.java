@@ -17,11 +17,12 @@ public class Professor {
     private Faculdade faculdade;
 
     public Professor() {}
-    public Professor(String n, String c, int m) {
+    public Professor(String n, String c, int m, Faculdade f) {
         nome = n;
         cpf = c;
         matricula = m;
-    }
+        faculdade = f;
+    }    
     public void setId(Long id) {
         this.id = id;
     }

@@ -60,16 +60,17 @@ public class App implements CommandLineRunner {
     }
 
     private void cadastrarFaculdade() {
-        out.println("\nCRIAÇÃO DE NOVA FACULDADE");
+        out.println("\nCADASTRAR NOVA FACULDADE");
         out.print("Nome da nova faculdade: ");
         String nome = entrada.nextLine();
-        out.print("Ano da fundação desta faculdade: ");
+        out.print("Ano da fundação da faculdade: ");
         int ano = Integer.parseInt(entrada.nextLine());
-
-        Faculdade f = new Faculdade("Faculdade de Engenharia", 1890);
+    
+        Faculdade f = new Faculdade(nome, ano);
         faculdadeRepo.save(f);
         out.println("Faculdade cadastrada com sucesso!");
     }
+    
 
     private void listarFaculdades() {
         List<Faculdade> faculdades = (List<Faculdade>) faculdadeRepo.findAll();
