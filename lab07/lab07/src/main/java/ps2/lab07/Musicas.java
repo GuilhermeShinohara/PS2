@@ -11,7 +11,7 @@ public class Musicas{
     private String titulo;
     private String compositor;
     private int ano;
-    
+    public Musicas(){};
     public Musicas(String t, String c, int a){
         titulo = t;
         compositor = c;

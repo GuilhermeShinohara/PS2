@@ -68,7 +68,7 @@ private void cadastrarMusica(){
 }
 
 private void listarMusicas(){
-	List<Musicas> musicas = (List<Musicas>) musicasRepo.findAll();
+	List <Musicas> musicas = (List<Musicas>) musicasRepo.findAll();
 	out.println("\nMusicas cadastradas: ");
 	for (Musicas m : musicas){
 		out.println(m.getId() +" -" + m.getTitulo());
